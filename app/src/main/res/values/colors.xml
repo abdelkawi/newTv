@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="black">#000</color>
+  <color name="menu_selected_item">#FEDE56</color>
+  <color name="menu_unselected_item">#7E7E7E</color>
+  <color name="home_movie_description">#C6C6C6</color>
+  <color name="back_from_details">#4A4A4A</color>
+  <color name="yellow_prim_tv">#F9A12E</color>
+  <color name="switcher_tabs_unselected">#1B1718</color>
+  <color name="background_gradient_start">#000000</color>
+  <color name="background_gradient_end">#DDDDDD</color>
+  <color name="fastlane_background">#0096a6</color>
+  <color name="search_opaque">#ffaa3f</color>
+  <color name="selected_background">#ffaa3f</color>
+  <color name="default_background">#3d3d3d</color>
+  <color name="color_orange">#ed9011</color>
+  <color name="color_yellow">#ffc41f</color>
+  <color name="color_yellow_opac70">#B3FFC41F</color>
+  <color name="color_transparent">#00000000</color>
+  <color name="color_light_black">#1E1E1E</color>
+  <color name="white">#fff</color>
+  <color name="color_dark_grey">#505050</color>
+
+
+</resources>

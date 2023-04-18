@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+  android:width="18dp"
+  android:height="18dp"
+  android:viewportWidth="44"
+  android:viewportHeight="44">
+  <path
+    android:fillColor="@color/yellow_prim_tv"
+    android:pathData="M41.343,38.188 L33.79,30.657a17.594,17.594 0,0 0,3.754 -10.885A17.772,17.772 0,1 0,19.772 37.544,17.594 17.594,0 0,0 30.657,33.79l7.531,7.553a2.231,2.231 0,1 0,3.155 -3.155ZM6.443,19.772A13.329,13.329 0,1 1,19.772 33.1,13.329 13.329,0 0,1 6.443,19.772Z" />
+</vector>

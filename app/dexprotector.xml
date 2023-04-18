@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<dexprotector>
+    <verbose>false</verbose>
+    <optimize>false</optimize>
+    <signMode>release</signMode>
+<!--    <signMode>google</signMode>-->
+<!--    <sha256CertificateFingerprint>C2:3C:C7:9C:C8:2F:3D:DA:9C:FA:DF:53:50:FE:36:72:F3:69:64:F3:C7:62:3A:12:07:89:77:64:C7:6F:F4:E6</sha256CertificateFingerprint>-->
+
+    <stringEncryption mode="all">
+        <filters>
+            <filter><![CDATA[glob:!com/google/**]]></filter>
+            <filter><![CDATA[glob:!com/gun0912/**]]></filter>
+            <filter><![CDATA[glob:!androidx/**]]></filter>
+            <filter><![CDATA[glob:!me/zhanghai/android/materialratingbar/**]]></filter>
+            <filter><![CDATA[glob:!com/onesignal/**]]></filter>
+            <filter><![CDATA[glob:!com/android/**]]></filter>
+            <filter><![CDATA[glob:!android/**]]></filter>
+            <filter><![CDATA[glob:!com/rilixtech/**]]></filter>
+            <filter><![CDATA[glob:!io/michaelrocks/libphonenumber/android/**]]></filter>
+            <filter><![CDATA[glob:!org/junit/**]]></filter>
+            <filter><![CDATA[glob:!cz/msebera/**]]></filter>
+            <filter><![CDATA[glob:!com/nostra13/**]]></filter>
+            <filter><![CDATA[glob:!org/apache/commons/**]]></filter>
+            <filter><![CDATA[glob:!com/chaos/view/**]]></filter>
+            <filter><![CDATA[glob:!com/theoplayer/**]]></filter>
+            <filter><![CDATA[glob:!com/scottyab/rootbeer/**]]></filter>
+            <filter><![CDATA[glob:!com/esafirm/**]]></filter>
+            <filter><![CDATA[glob:!org/jsoup/**]]></filter>
+            <filter><![CDATA[glob:!com/madx/updatechecker/lib/**]]></filter>
+            <filter><![CDATA[glob:!com/red5pro/streaming/**]]></filter>
+            <filter><![CDATA[glob:!de/adorsys/**]]></filter>
+            <filter><![CDATA[glob:!com/yospace/**]]></filter>
+        </filters>
+    </stringEncryption>
+
+    <classEncryption mode="all">
+        <filters>
+            <filter><![CDATA[glob:!com/google/**]]></filter>
+            <filter><![CDATA[glob:!com/gun0912/**]]></filter>
+            <filter><![CDATA[glob:!androidx/**]]></filter>
+            <filter><![CDATA[glob:!me/zhanghai/android/materialratingbar/**]]></filter>
+            <filter><![CDATA[glob:!com/onesignal/**]]></filter>
+            <filter><![CDATA[glob:!com/android/**]]></filter>
+            <filter><![CDATA[glob:!com/rilixtech/**]]></filter>
+            <filter><![CDATA[glob:!io/michaelrocks/libphonenumber/android/**]]></filter>
+            <filter><![CDATA[glob:!org/junit/**]]></filter>
+            <filter><![CDATA[glob:!cz/msebera/**]]></filter>
+            <filter><![CDATA[glob:!com/nostra13/**]]></filter>
+            <filter><![CDATA[glob:!org/apache/commons/**]]></filter>
+            <filter><![CDATA[glob:!com/chaos/view/**]]></filter>
+            <filter><![CDATA[glob:!com/theoplayer/**]]></filter>
+            <filter><![CDATA[glob:!com/scottyab/rootbeer/**]]></filter>
+            <filter><![CDATA[glob:!com/esafirm/**]]></filter>
+            <filter><![CDATA[glob:!org/jsoup/**]]></filter>
+            <filter><![CDATA[glob:!com/madx/updatechecker/lib/**]]></filter>
+            <filter><![CDATA[glob:!com/red5pro/streaming/**]]></filter>
+            <filter><![CDATA[glob:!de/adorsys/**]]></filter>
+            <filter><![CDATA[glob:!com/yospace/**]]></filter>
+        </filters>
+    </classEncryption>
+
+    <resourceEncryption nameObfuscation="on" webViewSupport="on">
+        <assets>
+            <filters>
+                <filter>*.html</filter>
+            </filters>
+        </assets>
+        <res>
+            <filters>
+                <filter>strings.xml</filter>
+            </filters>
+        </res>
+    </resourceEncryption>
+</dexprotector>

@@ -1,0 +1,8 @@
+.fa-step-forward {
+    order: -100;
+    cursor: pointer;
+}
+.fa-step-backward {
+    order: -101;
+    cursor: pointer;
+}

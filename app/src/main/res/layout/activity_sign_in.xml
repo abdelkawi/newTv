@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/bg_splash"
+  android:fillViewport="true">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+      android:id="@+id/linLogo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="45dp"
+      android:gravity="center"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <ImageView
+        android:layout_width="120dp"
+        android:layout_height="144dp"
+        android:src="@drawable/ic_logo" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/din_next_regular"
+        android:text="@string/label_alballam"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/din_next_regular"
+        android:text="@string/label_group"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+      android:id="@+id/etEmail"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="50dp"
+      android:backgroundTint="@color/white"
+      android:fontFamily="@font/din_next_light"
+      android:gravity="start"
+      android:hint="@string/email"
+      android:imeOptions="actionNext"
+      android:inputType="textEmailAddress"
+      android:nextFocusDown="@id/etPassword"
+      android:paddingBottom="15dp"
+      android:textDirection="ltr"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/linLogo"
+      app:layout_constraintWidth_percent="0.5" />
+
+    <RelativeLayout
+      android:id="@+id/passwordContainer"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/etEmail"
+      app:layout_constraintWidth_percent=".5">
+
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/din_next_light"
+        android:gravity="start"
+        android:hint="@string/label_password"
+        android:inputType="textPassword"
+        android:nextFocusDown="@id/tvSignIn"
+        android:paddingBottom="15dp" />
+
+
+    </RelativeLayout>
+
+
+    <Button
+      android:id="@+id/tvSignIn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="40dp"
+      android:background="@drawable/selector_btn"
+      android:clickable="true"
+      android:focusable="true"
+      android:fontFamily="@font/din_next_regular"
+      android:onClick="onClick"
+      android:text="@string/label_sign_in"
+      android:textAllCaps="false"
+      android:textColor="@color/white"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/passwordContainer" />
+
+    <ProgressBar
+      android:id="@+id/progressBar"
+      style="?android:attr/progressBarStyle"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/passwordContainer" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

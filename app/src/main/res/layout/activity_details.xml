@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/black">
+
+  <androidx.core.widget.ContentLoadingProgressBar
+    android:id="@+id/pb"
+    style="@style/Widget.AppCompat.ProgressBar"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/dataContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+      android:id="@+id/ivMoviePhoto"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:scaleType="centerCrop"
+      android:src="@drawable/ic_logo"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:src="@drawable/details_shadow_layer_2"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHeight_percent="0.3"
+      app:layout_constraintHorizontal_bias="1"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1" />
+
+    <ImageView
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:src="@drawable/details_shadow"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+      android:id="@+id/tvSectionTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="60dp"
+      android:layout_marginTop="24dp"
+      android:fontFamily="@font/din_next_regular"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="#الاكثر مشاهدة" />
+
+    <TextView
+      android:id="@+id/tvMovieTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/vexa"
+      android:textSize="56sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintStart_toStartOf="@id/tvSectionTitle"
+      app:layout_constraintTop_toBottomOf="@id/tvSectionTitle"
+      tools:text="سوبر ماركت" />
+
+    <ImageView
+      android:id="@+id/ivMovieTimeIcon"
+      android:layout_width="13dp"
+      android:layout_height="13dp"
+      android:layout_marginTop="25dp"
+      android:src="@drawable/ic_movie_details_time"
+      app:layout_constraintStart_toStartOf="@id/tvMovieTitle"
+      app:layout_constraintTop_toBottomOf="@id/tvMovieTitle" />
+
+    <TextView
+      android:id="@+id/tvMovieTimeLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:fontFamily="@font/din_next_regular"
+      android:includeFontPadding="false"
+      android:text="@string/movie_time"
+      android:textSize="12sp"
+      app:layout_constraintBottom_toBottomOf="@id/ivMovieTimeIcon"
+      app:layout_constraintStart_toEndOf="@id/ivMovieTimeIcon"
+      app:layout_constraintTop_toTopOf="@id/ivMovieTimeIcon" />
+
+    <TextView
+      android:id="@+id/tvMovieTimeValue"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:fontFamily="@font/din_next_regular"
+      android:includeFontPadding="false"
+      android:textColor="@color/yellow_prim_tv"
+      android:textSize="12sp"
+      app:layout_constraintBottom_toBottomOf="@id/ivMovieTimeIcon"
+      app:layout_constraintStart_toEndOf="@id/tvMovieTimeLabel"
+      app:layout_constraintTop_toTopOf="@id/ivMovieTimeIcon"
+      tools:text=" ٢ ساعة" />
+
+    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+      android:id="@+id/rbRating"
+      android:layout_width="90dp"
+      android:layout_height="18dp"
+      android:layout_marginStart="16dp"
+      android:isIndicator="true"
+      android:max="5"
+      android:numStars="5"
+      android:stepSize="0.1"
+      app:layout_constraintBottom_toBottomOf="@id/ivMovieTimeIcon"
+      app:layout_constraintStart_toEndOf="@id/tvMovieTimeValue"
+      app:layout_constraintTop_toTopOf="@id/ivMovieTimeIcon"
+      app:mrb_progressBackgroundTint="@color/white"
+      app:mrb_progressTint="@color/color_yellow" />
+
+    <TextView
+      android:id="@+id/tvRatingOverTen"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:fontFamily="@font/din_next_regular"
+      android:textColor="@color/yellow_prim_tv"
+      app:layout_constraintBottom_toBottomOf="@id/ivMovieTimeIcon"
+      app:layout_constraintStart_toEndOf="@id/rbRating"
+      app:layout_constraintTop_toTopOf="@id/ivMovieTimeIcon" />
+
+    <TextView
+      android:id="@+id/tvMovieDescription"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:ellipsize="end"
+      android:fontFamily="@font/din_next_medium"
+      android:includeFontPadding="false"
+      android:lineSpacingExtra="8sp"
+      android:maxLines="3"
+      android:textColor="@color/home_movie_description"
+      android:textSize="16sp"
+      app:layout_constrainedWidth="true"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0"
+      app:layout_constraintStart_toStartOf="@id/ivMovieTimeIcon"
+      app:layout_constraintTop_toBottomOf="@id/ivMovieTimeIcon"
+      app:layout_constraintWidth_percent="0.5"
+      tools:text="jasdfabshidfbhasbdfhasbsdfsfsfsfsfsdfdsfsfhbashdfbahsdbfahsudfbhausdbfhasbdfhasdfuasdfbhasdbfhsabdhf" />
+
+    <TextView
+      android:id="@+id/tvAuthorNameLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="18dp"
+      android:fontFamily="@font/din_next_regular"
+      android:text="@string/label_author"
+      app:layout_constraintStart_toStartOf="@id/ivMovieTimeIcon"
+      app:layout_constraintTop_toBottomOf="@id/tvMovieDescription" />
+
+    <TextView
+      android:id="@+id/tvMovieAuthorValue"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:fontFamily="@font/din_next_regular"
+      android:textColor="@color/yellow_prim_tv"
+      android:textSize="14sp"
+      app:layout_constraintBottom_toBottomOf="@id/tvAuthorNameLabel"
+      app:layout_constraintStart_toEndOf="@id/tvAuthorNameLabel"
+      app:layout_constraintTop_toTopOf="@id/tvAuthorNameLabel"
+      tools:text="احمد مراد" />
+
+    <TextView
+      android:id="@+id/tvMovieDirectorLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="18dp"
+      android:fontFamily="@font/din_next_regular"
+      android:text="@string/label_directed_by"
+      app:layout_constraintStart_toEndOf="@id/tvMovieAuthorValue"
+      app:layout_constraintTop_toBottomOf="@id/tvMovieDescription" />
+
+    <TextView
+      android:id="@+id/tvDirectedByValue"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:fontFamily="@font/din_next_regular"
+      android:textColor="@color/yellow_prim_tv"
+      android:textSize="14sp"
+      app:layout_constraintBottom_toBottomOf="@id/tvMovieDirectorLabel"
+      app:layout_constraintStart_toEndOf="@id/tvMovieDirectorLabel"
+      app:layout_constraintTop_toTopOf="@id/tvMovieDirectorLabel"
+      tools:text="احمد مراد" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/playNow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:clickable="true"
+      android:focusable="true"
+      app:layout_constraintStart_toStartOf="@id/ivMovieTimeIcon"
+      app:layout_constraintTop_toBottomOf="@id/tvAuthorNameLabel">
+
+      <TextView
+        android:id="@+id/tvPlayNow"
+        android:layout_width="120dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="21dp"
+        android:background="@drawable/bg_more_details_btn"
+        android:fontFamily="@font/din_next_bold"
+        android:gravity="center|end"
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="4dp"
+        android:text="@string/play_now"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivPlayNow"
+        app:layout_constraintStart_toStartOf="@id/ivPlayNow"
+        app:layout_constraintTop_toTopOf="@id/ivPlayNow" />
+
+      <ImageView
+        android:id="@+id/ivPlayNow"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_movie_details_play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/btnProduction"
+      android:layout_width="wrap_content"
+      android:layout_height="39dp"
+      android:layout_centerVertical="true"
+      android:layout_marginHorizontal="32dp"
+      android:background="@drawable/bg_more_details_btn"
+      android:backgroundTint="@color/back_from_details"
+      android:clickable="true"
+      android:focusable="true"
+      app:layout_constraintBottom_toBottomOf="@+id/btnFav"
+      app:layout_constraintStart_toEndOf="@id/btnFav"
+      app:layout_constraintTop_toTopOf="@+id/btnFav">
+
+      <ImageView
+        android:id="@+id/productionIc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_production"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:fontFamily="@font/din_next_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/production"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/productionIc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/productionIc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/btnPromo"
+      android:layout_width="96dp"
+      android:layout_height="39dp"
+      android:layout_marginHorizontal="32dp"
+      android:background="@drawable/bg_more_details_btn"
+      android:backgroundTint="@color/back_from_details"
+      android:clickable="true"
+      android:focusable="true"
+      app:layout_constraintBottom_toBottomOf="@+id/playNow"
+      app:layout_constraintStart_toEndOf="@id/playNow"
+      app:layout_constraintTop_toTopOf="@+id/playNow">
+
+      <ImageView
+        android:id="@+id/promoIc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/ic_promo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/din_next_medium"
+        android:includeFontPadding="false"
+        android:text="@string/promo"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/promoIc"
+        app:layout_constraintStart_toEndOf="@id/promoIc"
+        app:layout_constraintTop_toTopOf="@id/promoIc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/btnFav"
+      android:layout_width="96dp"
+      android:layout_height="39dp"
+      android:layout_centerVertical="true"
+      android:layout_marginHorizontal="32dp"
+      android:background="@drawable/bg_more_details_btn"
+      android:backgroundTint="@color/back_from_details"
+      android:clickable="true"
+      android:focusable="true"
+      app:layout_constraintBottom_toBottomOf="@+id/btnPromo"
+      app:layout_constraintStart_toEndOf="@id/btnPromo"
+      app:layout_constraintTop_toTopOf="@+id/btnPromo">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/favIc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/ic_fav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/din_next_medium"
+        android:includeFontPadding="false"
+        android:text="@string/fav_txt"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/favIc"
+        app:layout_constraintStart_toEndOf="@id/favIc"
+        app:layout_constraintTop_toTopOf="@id/favIc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/btnEpisodes"
+      android:layout_width="wrap_content"
+      android:layout_height="39dp"
+      android:layout_centerVertical="true"
+      android:layout_marginHorizontal="32dp"
+      android:background="@drawable/bg_more_details_btn"
+      android:backgroundTint="@color/back_from_details"
+      android:clickable="true"
+      android:focusable="true"
+      app:layout_constraintBottom_toBottomOf="@+id/btnFav"
+      app:layout_constraintStart_toEndOf="@id/btnProduction"
+      app:layout_constraintTop_toTopOf="@+id/btnFav">
+
+      <ImageView
+        android:id="@+id/episodesIc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_production"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:fontFamily="@font/din_next_medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/episodes"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/episodesIc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/episodesIc" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+      android:id="@+id/tvProductionLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/din_next_regular"
+      android:text="@string/production"
+      android:textColor="@color/white"
+      android:textSize="20sp"
+      android:visibility="gone"
+      app:layout_constraintStart_toStartOf="@+id/playNow"
+      app:layout_constraintTop_toBottomOf="@id/playNow" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/productionList"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/tvProductionLabel"
+      app:layout_constraintTop_toBottomOf="@id/tvProductionLabel" />
+
+    <TextView
+      android:id="@+id/tvEpisodesLabel"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/din_next_regular"
+      android:text="@string/episodes"
+      android:textColor="@color/white"
+      android:textSize="20sp"
+      android:visibility="gone"
+      app:layout_constraintStart_toStartOf="@+id/playNow"
+      app:layout_constraintTop_toBottomOf="@id/playNow" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/episodesList"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/tvEpisodesLabel"
+      app:layout_constraintTop_toBottomOf="@id/tvEpisodesLabel" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

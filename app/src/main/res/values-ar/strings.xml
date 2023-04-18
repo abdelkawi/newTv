@@ -1,0 +1,46 @@
+<resources>
+  <string name="app_name">قروب البلام</string>
+
+  <!--    "serverUnreachable" = "An error has occured, please try again.";-->
+  <!--    "connectionTimeout" = "Check your internet connection.";-->
+
+
+  <string name="label_alballam">البلام</string>
+  <string name="label_group">جروب</string>
+
+
+  <string name="label_sign_in">تسجيل الدخول</string>
+  <string name="subscription">العضوية</string>
+  <string name="search">بحث</string>
+  <string name="home">الرئيسية</string>
+  <string name="favorite">المفضلة</string>
+  <string name="settings">اعدادات</string>
+  <string name="exit_app">الخروج</string>
+  <string name="language">اللغة</string>
+  <string name="email">البريد الالكتروني</string>
+  <string name="label_password">كلمة السر</string>
+  <string name="shows">مسلسلات</string>
+  <string name="plays">مسرحيات</string>
+  <string name="more_details">تفاصيل اكثر</string>
+  <string name="most_watched">الاكثر مشاهدة</string>
+  <string name="new_release">اصدار جديد</string>
+  <string name="all">الكل</string>
+  <string name="play_now">تشغيل</string>
+  <string name="movie_time">مدة الفيلم :</string>
+  <string name="promo">البرومو</string>
+  <string name="production">طاقم العمل</string>
+  <string name="fav_txt">مفضل</string>
+  <string name="empty_search">لا يوجد نتائج بحث</string>
+  <string name="label_author">المؤلف</string>
+  <string name="label_directed_by">إخراج</string>
+  <string name="wishlist_screen_label">المفضلة</string>
+  <string name="search_hint">"ابحث عن المسلسلات والمسرحيات "</string>
+  <string name="ar">عربى</string>
+  <string name="en">English</string>
+  <string name="label_terms_and_conditions">Terms and Conditions</string>
+  <string name="label_ok">OK</string>
+  <string name="are_you_sure_want_to_exit_app">هل تريد الخروج من التطبيق ؟</string>
+  <string name="error_player"><![CDATA["  <string name=\"error_player\">There was an error initializing the YouTubePlayer (%1$s)</string> "]]></string>
+  <string name="episodes">الحلقات</string>
+
+</resources>

@@ -1,0 +1,76 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+  id 'kotlin-parcelize'
+  id 'kotlin-kapt'
+  id 'kotlin-android'
+  id 'com.google.dagger.hilt.android'
+}
+
+android {
+  namespace 'com.eurisko.alballam.tv'
+  compileSdk 33
+
+  signingConfigs {
+    config {
+      storeFile file('/Users/abdelkawi/Desktop/alballamtv.jks')
+      storePassword '123456'
+      keyAlias 'alballam'
+      keyPassword '123456'
+    }
+  }
+  defaultConfig {
+    applicationId "com.eurisko.alballam.tv"
+    minSdk 23
+    targetSdk 33
+    versionCode 7
+    buildConfigField 'String', 'BASE_URL', '"https://api.alballamgroup.com/"'
+    versionName "1.0"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      buildConfigField 'String', 'BASE_URL', '"https://api.alballamgroup.com/"'
+      signingConfig signingConfigs.config
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  kapt {
+    correctErrorTypes true
+  }
+  buildFeatures{
+    viewBinding true
+  }
+}
+
+dependencies {
+
+  implementation 'androidx.leanback:leanback:1.0.0'
+  implementation "androidx.activity:activity-ktx:1.7.0"
+  implementation "androidx.fragment:fragment-ktx:1.5.6"
+  implementation 'androidx.core:core-ktx:1.9.0'
+  implementation 'com.github.bumptech.glide:glide:4.13.2'
+  implementation 'androidx.appcompat:appcompat:1.6.1'
+  implementation 'com.google.android.material:material:1.8.0'
+  implementation 'com.google.code.gson:gson:2.9.0'
+  // Networking
+  implementation "com.squareup.retrofit2:retrofit:2.9.0"
+  implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+  implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+  implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.11'
+  implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11'
+  implementation('com.squareup.moshi:moshi-kotlin:1.14.0')
+  implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+  implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
+  implementation 'me.relex:circleindicator:2.1.6'
+
+  implementation 'androidx.fragment:fragment-ktx:1.5.6'
+  implementation "com.google.dagger:hilt-android:2.45"
+  kapt "com.google.dagger:hilt-compiler:2.45"
+  implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'
+
+  implementation files ("libs/theoplayer-android-dist-e643061a-4b69-45ac-bb1e-e72cdd86c181-2.85.2-minapi21-release.aar")
+  implementation files ("libs/YouTubeAndroidPlayerApi.jar")
+  implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}
