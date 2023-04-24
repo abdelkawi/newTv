@@ -8,6 +8,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.eurisko.alballam.tv.DataModel
 import com.eurisko.alballam.tv.R
@@ -19,6 +20,7 @@ import com.eurisko.alballam.tv.databinding.FragmentHomeBinding
 import com.eurisko.alballam.tv.ui.details.DetailsActivity
 import com.eurisko.alballam.tv.ui.MainViewModel
 import com.eurisko.alballam.tv.ui.listing.ListingActivity
+import com.eurisko.alballam.tv.ui.loading.LoadingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -46,6 +48,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
       mainViewModel.homeData.observe(requireActivity()) {
         when (it) {
           is DataState -> {
+            showData()
             listFragment.bindData(DataModel(it.data))
             autoScroll(it.data?.data?.result?.carouselBeanList ?: emptyList())
           }
@@ -53,7 +56,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
           }
           LoadingState -> {
-
+            showLoading()
           }
         }
       }
@@ -67,7 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
       false
     }
     binding.allTv.setOnKeyListener { v, keyCode, event ->
-      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
+      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER && event.action == KeyEvent.ACTION_DOWN) {
         val intent = Intent(requireContext(), ListingActivity::class.java)
         intent.putExtra("type", "all")
         intent.putExtra("isNewRelease", false)
@@ -76,18 +79,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
       false
     }
     binding.mostWatchedTv.setOnKeyListener { v, keyCode, event ->
-      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
+      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER && event.action == KeyEvent.ACTION_DOWN) {
         val intent = Intent(requireContext(), ListingActivity::class.java)
-        intent.putExtra("type", "all")
+        intent.putExtra("type", "mostWatched")
         intent.putExtra("isNewRelease", false)
         startActivity(intent)
       }
       false
     }
     binding.newReleaseTv.setOnKeyListener { v, keyCode, event ->
-      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
+      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER && event.action == KeyEvent.ACTION_DOWN) {
         val intent = Intent(requireContext(), ListingActivity::class.java)
-        intent.putExtra("type", "shows")
+        intent.putExtra("type", "all")
         intent.putExtra("isNewRelease", true)
         startActivity(intent)
       }
@@ -125,5 +128,23 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
       }
     }
     handler.post(runnable)
+  }
+
+  private fun showLoading() {
+    binding.data.visibility = View.GONE
+    binding.loading.visibility = View.VISIBLE
+    binding.rv1.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    binding.rv1.adapter = LoadingAdapter()
+
+    binding.rv2.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    binding.rv2.adapter = LoadingAdapter()
+
+    binding.rv3.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    binding.rv3.adapter = LoadingAdapter()
+  }
+
+  private fun showData() {
+    binding.data.visibility = View.VISIBLE
+    binding.loading.visibility = View.GONE
   }
 }

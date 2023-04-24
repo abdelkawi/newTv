@@ -68,6 +68,10 @@
       android:name=".ui.search.SearchActivity"
       android:exported="false"
       android:screenOrientation="landscape" />
+    <activity
+      android:name=".ui.settings.SettingsActivity"
+      android:exported="false"
+      android:screenOrientation="landscape" />
 
     <meta-data
       android:name="THEOPLAYER_LICENSE"

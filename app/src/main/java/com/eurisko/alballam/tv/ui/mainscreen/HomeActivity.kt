@@ -19,7 +19,7 @@ import com.eurisko.alballam.tv.UserManager
 import com.eurisko.alballam.tv.ui.exit.ExitApp
 import com.eurisko.alballam.tv.ui.fav.FavoriteActivity
 import com.eurisko.alballam.tv.ui.search.SearchActivity
-import com.eurisko.alballam.tv.ui.settings.SettingsFragment
+import com.eurisko.alballam.tv.ui.settings.SettingsActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 import javax.inject.Inject
@@ -57,7 +57,7 @@ class HomeActivity : FragmentActivity(), OnKeyListener {
 
   }
 
-  fun switchFragment(fragment: Fragment) {
+  private fun switchFragment(fragment: Fragment) {
     showFragment(fragment, frameContainer.id, false, true)
   }
 
@@ -88,13 +88,11 @@ class HomeActivity : FragmentActivity(), OnKeyListener {
     if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
       if (sideMenu && Locale.getDefault() == Locale.ENGLISH) {
         sideMenu = false
-        //      closeMenu()
       }
     }
     if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
       if (sideMenu) {
         sideMenu = false
-        //       closeMenu()
       }
     }
 
@@ -167,11 +165,10 @@ class HomeActivity : FragmentActivity(), OnKeyListener {
           when (v.id) {
             id.btn_home -> {
               selectedMenu = Constant.HOME
-              switchFragment(HomeFragment())
             }
             id.btn_settings -> {
               selectedMenu = Constant.SETTINGS
-              switchFragment(SettingsFragment())
+              startActivity(Intent(this, SettingsActivity::class.java))
             }
             id.btn_fav -> {
               selectedMenu = Constant.FAVORITE

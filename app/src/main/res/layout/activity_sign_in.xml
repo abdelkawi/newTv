@@ -65,6 +65,7 @@
       android:inputType="textEmailAddress"
       android:nextFocusDown="@id/etPassword"
       android:paddingBottom="15dp"
+      android:text="yousef.imran@hotmail.com"
       android:textDirection="ltr"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +93,9 @@
         android:hint="@string/label_password"
         android:inputType="textPassword"
         android:nextFocusDown="@id/tvSignIn"
-        android:paddingBottom="15dp" />
+        android:paddingBottom="15dp"
+        android:text="99156852" />
+
 
 
     </RelativeLayout>

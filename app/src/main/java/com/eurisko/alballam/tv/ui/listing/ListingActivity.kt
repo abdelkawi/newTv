@@ -2,6 +2,7 @@ package com.eurisko.alballam.tv.ui.listing
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
@@ -32,21 +33,22 @@ class ListingActivity : FragmentActivity(), OnItemClicked {
     adapter = ListingItemAdapter(this)
     binding.listRv.layoutManager = GridLayoutManager(this, 4)
     binding.listRv.adapter = adapter
-    if ((intent.getStringExtra("type") ?: "") == "all") {
-      getData("show", false)
-      getData("play", false)
-    } else
+    if (intent.getStringExtra("type") == "all") {
       getData(
-        intent.getStringExtra("type") ?: "",
-        intent.getBooleanExtra("isNewRelease", false)
+        "show", true
       )
+    } else if (intent.getStringExtra("type") == "mostWatched") {
+      getData(
+        "show", false
+      )
+    }
   }
 
   private fun getData(type: String, isNewRelease: Boolean) {
     lifecycleScope.launch {
       mainViewModel.getItems(
         type, isNewRelease
-      ).collect() {
+      ).collect() { it ->
         when (it) {
           is DataState -> {
             if (it.data.data != null && it.data.data != null) {
@@ -54,10 +56,11 @@ class ListingActivity : FragmentActivity(), OnItemClicked {
               binding.listRv.visibility = View.VISIBLE
               val res = it.data.data
 
-              res?.result?.data?.forEach {
-                dataList.add(it!!)
+              res?.result?.data?.forEach { item ->
+                dataList.add(item!!)
               }
               binding.listRv.scrollToPosition(0)
+              Log.d("dataListSize: ", dataList.size.toString())
               adapter.submitList(dataList)
             } else {
               binding.progressBar.visibility = View.GONE

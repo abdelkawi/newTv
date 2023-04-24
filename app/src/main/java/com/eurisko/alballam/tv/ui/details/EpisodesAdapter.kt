@@ -1,5 +1,6 @@
 package com.eurisko.alballam.tv.ui.details
 
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eurisko.alballam.tv.R
 import com.eurisko.alballam.tv.Utils
 import com.eurisko.alballam.tv.data.model.EpisodesItem
+import com.eurisko.alballam.tv.ui.OnItemClicked
 
-class EpisodesAdapter : ListAdapter<EpisodesItem, EpisodeViewHolder>(DiffCallBackEpisode) {
+class EpisodesAdapter(val itemClicked: OnItemClicked) : ListAdapter<EpisodesItem, EpisodeViewHolder>(DiffCallBackEpisode) {
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
     val view = LayoutInflater.from(parent.context).inflate(R.layout.item_episode, parent, false)
     return EpisodeViewHolder(view)
@@ -19,6 +21,11 @@ class EpisodesAdapter : ListAdapter<EpisodesItem, EpisodeViewHolder>(DiffCallBac
 
   override fun onBindViewHolder(holder: EpisodeViewHolder, position: Int) {
     holder.bind(getItem(position))
+    holder.view.setOnKeyListener { v, keyCode, event ->
+      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER && event.action == KeyEvent.ACTION_DOWN)
+        itemClicked.onClicked(getItem(position).id ?: "")
+      false
+    }
   }
 
 }

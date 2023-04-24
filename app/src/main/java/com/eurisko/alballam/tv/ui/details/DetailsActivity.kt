@@ -21,12 +21,13 @@ import com.eurisko.alballam.tv.YoutubePlayerActivity
 import com.eurisko.alballam.tv.data.model.MovieDetailBean
 import com.eurisko.alballam.tv.databinding.ActivityDetailsBinding
 import com.eurisko.alballam.tv.ui.MainViewModel
+import com.eurisko.alballam.tv.ui.OnItemClicked
 import com.eurisko.alballam.tv.ui.player.PlayerActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class DetailsActivity : FragmentActivity() {
+class DetailsActivity : FragmentActivity(), OnItemClicked {
   private var movieDetailBean: MovieDetailBean? = null
   private val mainViewModel: MainViewModel by viewModels()
   lateinit var binding: ActivityDetailsBinding
@@ -70,8 +71,8 @@ class DetailsActivity : FragmentActivity() {
     binding.productionList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     binding.productionList.adapter = productionAdapter
 
-    if (!movieDetailBean?.season.isNullOrEmpty()) {
-      val episodesAdapter = EpisodesAdapter()
+    if (!movieDetailBean?.type.equals("play")) {
+      val episodesAdapter = EpisodesAdapter(this)
       episodesAdapter.submitList(movieDetailBean?.season?.get(0)?.episodes ?: emptyList())
       binding.episodesList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
       binding.episodesList.adapter = episodesAdapter
@@ -107,12 +108,12 @@ class DetailsActivity : FragmentActivity() {
       binding.btnFav.backgroundTintList = ColorStateList.valueOf(getColor(R.color.yellow_prim_tv))
     }
 
-    getMovieExtraDetails()
+    getMovieExtraDetails(movieDetailBean?.id ?: "")
   }
 
-  private fun getMovieExtraDetails() {
+  private fun getMovieExtraDetails(id: String) {
     lifecycleScope.launch {
-      mainViewModel.getMovieExtraDetail(movieDetailBean?.id ?: "").collect {
+      mainViewModel.getMovieExtraDetail(id).collect {
         when (it) {
           is DataState -> {
             url = it.data.body()?.movieUrl ?: ""
@@ -216,6 +217,10 @@ class DetailsActivity : FragmentActivity() {
       }
     }
     return super.dispatchKeyEvent(event)
+  }
+
+  override fun onClicked(id: String) {
+    getMovieExtraDetails(id)
   }
 
 }

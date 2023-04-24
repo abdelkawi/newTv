@@ -23,7 +23,7 @@ android {
     applicationId "com.eurisko.alballam.tv"
     minSdk 23
     targetSdk 33
-    versionCode 7
+    versionCode 8
     buildConfigField 'String', 'BASE_URL', '"https://api.alballamgroup.com/"'
     versionName "1.0"
   }
@@ -69,6 +69,7 @@ dependencies {
   implementation "com.google.dagger:hilt-android:2.45"
   kapt "com.google.dagger:hilt-compiler:2.45"
   implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'
+  implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
   implementation files ("libs/theoplayer-android-dist-e643061a-4b69-45ac-bb1e-e72cdd86c181-2.85.2-minapi21-release.aar")
   implementation files ("libs/YouTubeAndroidPlayerApi.jar")
